@@ -4,24 +4,21 @@ public static class Kata
 {
     public static IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
     {
+        //List<T> list = new List<T>();
+        //foreach (T item in iterable)
+        //{
+        //    if (list.LastOrDefault().Equals(item)) continue;
+        //    list.Add(item);
+        //    //yield return item;
+        //}
+        //return list;
 
-        // if(iterable.GetType() == typeof(string))
-        if (iterable is string)
+        T itemOld = default(T);
+        foreach (T item in iterable)
         {
-            List<char> list = (iterable as string).ToList();
-            List<char> result = new List<char>();
-
-
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                if (list[i] != list[i + 1])
-                {
-                    result.Add(list[i]);
-                }
-
-            }
-            return result;
+            if (item.Equals(itemOld)) continue;
+            itemOld = item;
+            yield return item;
         }
-        return result;
     }
 }

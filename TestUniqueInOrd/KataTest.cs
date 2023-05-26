@@ -16,5 +16,10 @@ namespace Solution
         {
             Assert.AreEqual("ABCDAB", Kata.UniqueInOrder("AAAABBBCCDAABBB"));
         }
+        [Test]
+        public void Test2() 
+        { 
+            Assert.AreEqual(new int[] { 1,2,3}, Kata.UniqueInOrder(new int[] {1, 2, 2, 3, 3}));
+        }
     }
 }
